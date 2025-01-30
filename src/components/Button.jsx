@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './styles/modal.css'
 
 const Button = () => {
   const [showModal, setShowModal] = useState(false);
