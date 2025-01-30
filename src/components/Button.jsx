@@ -67,76 +67,80 @@ const Button = () => {
       closeModal();
     };
 
+    const handleModalClick = (e) => {
+      if (e.target.className === 'modal') {
+        closeModal();
+      }
+    };
+
     return (
-      <>
-        <div className="modal" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Fill Details</h2>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="username">
-                Username:
-                <br />
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
+      <div className="modal" onClick={handleModalClick}>
+        <div className="modal-content">
+          <h2>Fill Details</h2>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username">
+              Username:
               <br />
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <br />
 
-              <label htmlFor="email">
-                Email Address:
-                <br />
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
+            <label htmlFor="email">
+              Email Address:
               <br />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <br />
 
-              <label htmlFor="phone">
-                Phone Number:
-                <br />
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  pattern="[0-9]{10}"
-                />
-              </label>
+            <label htmlFor="phone">
+              Phone Number:
               <br />
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                pattern="[0-9]{10}"
+              />
+            </label>
+            <br />
 
-              <label htmlFor="dob">
-                Date of Birth:
-                <br />
-                <input
-                  type="date"
-                  id="dob"
-                  name="dob"
-                  value={formData.dob}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
+            <label htmlFor="dob">
+              Date of Birth:
               <br />
-              
-              <button type="submit" className="submit-button">
-                Submit
-              </button>
-            </form>
-          </div>
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                value={formData.dob}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <br />
+            
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          </form>
         </div>
-      </>
+      </div>
     );
   };
 
